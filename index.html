@@ -1,0 +1,211 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> d8e6c2e908510eaf0e63432dae02edf5bdf93de8
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/assets/style.css" />
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+    <link rel="stylesheet" href="/public/styles.css" />
+    <script
+      type="text/javascript"
+      src="http://www.cornify.com/js/cornify.js"
+    ></script>
+    <!-- <script src="https://unpkg.com/wavesurfer.js"></script> -->
+    <title>MusicMachine2100</title>
+  </head>
+
+  <body class="bg-purple-900">
+    <!-- Setting Bar -->
+    <section
+      class="relative flex bg-purple-200 p-2 m-5 justify-center w-1/2 h-30"
+    >
+      <div>
+        <div class="group inline-block">
+          <button
+            class="
+              outline-none
+              focus:outline-none
+              border
+              px-3
+              py-1
+              bg-white
+              rounded-sm
+              flex
+              items-center
+              min-w-32
+            "
+          >
+            <span class="pr-1 font-semibold flex-1"> Sound Options: </span>
+            <span>
+              <svg
+                class="
+                  fill-current
+                  h-4
+                  w-4
+                  transform
+                  group-hover:-rotate-180
+                  transition
+                  duration-150
+                  ease-in-out
+                "
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                />
+              </svg>
+            </span>
+          </button>
+          <ul
+            class="
+              bg-white
+              border
+              rounded-sm
+              transform
+              scale-0
+              group-hover:scale-100
+              absolute
+              transition
+              duration-150
+              ease-in-out
+              origin-top
+              min-w-32
+            "
+          >
+            <li class="rounded-sm px-3 py-1 hover:bg-gray-100">Drums</li>
+            <li class="rounded-sm px-3 py-1 hover:bg-gray-100">Piano</li>
+            <li class="rounded-sm relative px-3 py-1 hover:bg-gray-100">
+              Duck
+            </li>
+            <li class="rounded-sm px-3 py-1 hover:bg-gray-100">
+              Random Sounds
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <!--Play button-->
+    <section class="flex justify-center w-full align-center">
+      <div class="flex space-x-3 p-4">
+        <button
+          class="
+            rounded-full
+            w-8
+            h-8
+            flex
+            items-center
+            justify-center
+            pl-0.5
+            ring-2 ring-gray-100
+            focus:outline-none
+            bg-green-500
+          "
+        >
+          <svg
+            class="w-5 h-5 text-black"
+            viewBox="0 0 24 24"
+            fill="lightgreen"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+        </button>
+      </div>
+      <!-- Recoord button -->
+      <div>
+        <button
+          type="submit"
+          class="
+            m-3
+            p-2
+            bg-red-500
+            rounded-xl
+            ring-4 ring-red-500 ring-offset-4 ring-offset-red-200
+            font-bold
+          "
+        >
+          Record
+        </button>
+      </div>
+    </section>>
+    <!-- <div id="waveform"></div> -->
+    <div class="keys">
+      <div data-key="65" class="key">
+        <kbd>A</kbd>
+        <span class="sound">clap</span>
+      </div>
+      <div data-key="83" class="key">
+        <kbd>S</kbd>
+        <span class="sound">tick</span>
+      </div>
+      <div data-key="68" class="key">
+        <kbd>D</kbd>
+        <span class="sound">tink</span>
+      </div>
+      <div data-key="70" class="key">
+        <kbd>F</kbd>
+        <span class="sound">berrr</span>
+      </div>
+      <div data-key="71" class="key">
+        <kbd>G</kbd>
+        <span class="sound">hiopen</span>
+      </div>
+      <div data-key="72" class="key">
+        <kbd>H</kbd>
+        <span class="sound">tom</span>
+      </div>
+      <div data-key="74" class="key">
+        <kbd>J</kbd>
+        <span class="sound">snare</span>
+      </div>
+      <div data-key="75" class="key">
+        <kbd>K</kbd>
+        <span class="sound">tish</span>
+      </div>
+      <div data-key="76" class="key">
+        <kbd>L</kbd>
+        <span class="sound">beoo</span>
+      </div>
+    </div>
+
+    <audio
+      data-key="65"
+      src="/sounds/ducks/185546__crazyduckman__quack.wav"
+    ></audio>
+    <audio data-key="83" src="/sounds/ducks/anec.wav"></audio>
+    <audio data-key="68" src="/sounds/ducks/ANIM1013.wav"></audio>
+    <audio data-key="70" src="/sounds/ducks/duck1.mp3"></audio>
+    <audio data-key="71" src="/sounds/ducks/ente.wav"></audio>
+    <audio data-key="72" src="/sounds/ducks/karug.wav"></audio>
+    <audio data-key="73" src="/sounds/ducks/QUACK.wav"></audio>
+    <audio data-key="74" src="/sounds/ducks/ringt-nature-duck1.wav"></audio>
+    <audio data-key="75" src="/sounds/drumkit/Tamb Bitkits 02.wav"></audio>
+    <audio data-key="76" src="/sounds/drumkit/Kick Bitkits 01 1.wav"></audio>
+
+    <script src="/assets/script.js"></script>
+  </>
+</html>
+
+<!-- // <audio data-key="65" src="/sounds/drumkit/Clap Bitkits 02.wav"></audio>
+// <audio data-key="83" src="/sounds/drumkit/ClosedHH Bitkits 02.wav"></audio>
+// <audio data-key="68" src="/sounds/drumkit/Cowbell Bitkits 03.wav"></audio>
+// <audio data-key="70" src="/sounds/drumkit/Kick Bitkits 01 1.wav"></audio>
+// <audio data-key="71" src="/sounds/drumkit/OpenHH Bitkits 06.wav"></audio>
+// <audio data-key="72" src="/sounds/drumkit/Perc Bitkits 09 1.wav"></audio>
+// <audio data-key="73" src="/sounds/drumkit/Shaker Bitkits 02.wav"></audio>
+// <audio data-key="74" src="/sounds/drumkit/Snare Bitkits 05.wav"></audio>
+// <audio data-key="75" src="/sounds/drumkit/Tamb Bitkits 02.wav"></audio>
+// <audio data-key="76" src="/sounds/drumkit/Tom Bitkits 01 2.wav"></audio> -->
+<<<<<<< HEAD
+
+=======
+>>>>>>> d8e6c2e908510eaf0e63432dae02edf5bdf93de8
