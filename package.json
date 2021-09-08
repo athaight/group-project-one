@@ -1,0 +1,23 @@
+{
+  "name": "group-project-one",
+  "version": "1.0.0",
+  "description": "I like javascript because it's super confusing, and weird",
+  "main": "index.js",
+  "scripts": {
+    "build-css": "tailwindcss build assets/style.css -o public/styles.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/athaight/group-project-one.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/athaight/group-project-one/issues"
+  },
+  "homepage": "https://github.com/athaight/group-project-one#readme",
+  "dependencies": {
+    "tailwindcss": "^2.2.14"
+  }
+}
