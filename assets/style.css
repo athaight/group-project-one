@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  background-color: cadetblue;
+  /* background-color: cadetblue; */
   background-repeat: no-repeat;
   background-size: 100%;
   display: flex;
