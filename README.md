@@ -1,2 +1,4 @@
 # group-project-one
-I enjoy JavaScript because it utilizes both Functional programming and Object-oriented programming.
+
+
+I like javascript because it's super confusing, and weird
