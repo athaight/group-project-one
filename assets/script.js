@@ -1,126 +1,97 @@
-window.addEventListener('keydown', function (event) {
-    const audio = document.querySelector(`audio[data-key="${event.keyCode}"]`);
-    const key = document.querySelector(`.key[data-key="${event.keyCode}"]`);
-    if(!audio) return;
-    audio.currentTime= 0;
-    audio.play();
-    key.classList.add('playing');
-});
-    
-function removeTransition(event){
-    if (event.propertyName !== 'transform') return;
-    this.classList.remove('playing');
+// Create a whitelist of characters that can be pressed by the user;
+const whitelist = "asdfghjkl";
+
+// create a recording array to keep track of all key presses
+const recording = [];
+
+// utiltiy function to check if key was valid
+function isValidKey(key) {
+  return whitelist.includes(key);
 }
 
-    const keys = document.querySelectorAll('.key');
-    keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+// Add event listener for all keydown events in the browser
+window.addEventListener("keydown", function (event) {
+  console.log(event.key);
+  // If key is not valid return
+  if (!isValidKey(event.key)) return;
 
+  // Select the audio element based off the keycode that was pressed
+  const audio = document.querySelector(`audio[data-key="${event.key}"]`);
+  // find the html element on the page to add classes to
+  const key = document.querySelector(`.key[data-key="${event.key}"]`);
+  // Tells the audio file at which time it should start playing
+  // https://www.w3schools.com/tags/av_prop_currenttime.asp
+  audio.currentTime = 0;
+  // Tell the audio element to play in the browser
+  audio.play();
+  // Add styling to the selected key
+  key.classList.add("playing");
 
-var keyHit = [];
-      var recordedCode = "unicorns";
+  // record the key that was pressed
+  // check to see if there is a delay in the recording
+  if (recording[recording.length - 1]?.type === "delay") {
+    // if so set end time
+    recording[recording.length - 1].end = event.timeStamp;
+  }
 
-      window.addEventListener('keyup', function(event) {
-          console.log(event.key)
-          keyHit.push(event.key);
-          keyHit.splice(-recordedCode.length - 1, keyHit.length - recordedCode.length);
-          console.log(keyHit)
+  // set an end time
+  recording.push({
+    type: "keypress",
+    key: event.key,
+  });
+  // push a delay object with start time set
+  recording.push({
+    type: "delay",
+    start: event.timeStamp,
+  });
+});
 
-          if (keyHit.join('').includes(recordedCode)){
-              cornify_add();
-          }
-          console.log(keyHit);
-      });   
+// Add event listener for all keydown events in the browser
+window.addEventListener("keyup", function (event) {
+  // If key is not valid return
+  if (!isValidKey(event.key)) return;
+});
 
-document.querySelector('.play-button').addEventListener('click', start);
-document.querySelector('.stop-button').addEventListener('click', stop);
+// utility function to add animation to key elements
+function removeTransition(event) {
+  if (event.propertyName !== "transform") return;
+  this.classList.remove("playing");
+}
 
+// Select all keys on the page and register event listener for transitionend
+const keys = document.querySelectorAll(".key");
+keys.forEach((key) => key.addEventListener("transitionend", removeTransition));
 
-console.clear();
+// Start playing our recorded audio
+function start() {
+  console.log("Starting...");
+  // play our recording starting at index 0
+  playRecord(0);
+}
 
-// instigate our audio context
+function playRecord(index) {
+  // exit condition: we are the end of our array
+  if (index === recording.length - 1) return;
 
-// for cross browser
-const AudioContext = window.AudioContext || window.webkitAudioContext;
-const audioCtx = new AudioContext();
+  // play the audio associated with the key stored in the current index of our array
+  const key = recording[index].key;
+  const audio = document.querySelector(`audio[data-key="${key}"]`);
+  audio.play();
 
-// load some sound
-const audioElement = document.querySelector('audio');
-const track = audioCtx.createMediaElementSource(audioElement);
+  index++;
+  const delay = recording[index].end - recording[index].start;
 
-const playButton = document.querySelector('.tape-controls-play');
+  // wait the delayed time
+  setTimeout(function () {
+    // move onto the next key in the array
+    playRecord(++index);
+  }, delay);
+}
 
-// play pause audio
-playButton.addEventListener('click', function() {
-	
-	// check if context is in suspended state (autoplay policy)
-	if (audioCtx.state === 'suspended') {
-		audioCtx.resume();
-	}
-	
-	if (this.dataset.playing === 'false') {
-		audioElement.play();
-		this.dataset.playing = 'true';
-	// if track is playing pause it
-	} else if (this.dataset.playing === 'true') {
-		audioElement.pause();
-		this.dataset.playing = 'false';
-	}
-	
-	let state = this.getAttribute('aria-checked') === "true" ? true : false;
-	this.setAttribute( 'aria-checked', state ? "false" : "true" );
-	
-}, false);
+function record() {
+  console.log("Starting...");
+}
 
-// if track ends
-audioElement.addEventListener('ended', () => {
-	playButton.dataset.playing = 'false';
-	playButton.setAttribute( "aria-checked", "false" );
-}, false);
-
-// volume
-const gainNode = audioCtx.createGain();
-
-const volumeControl = document.querySelector('[data-action="volume"]');
-volumeControl.addEventListener('input', function() {
-	gainNode.gain.value = this.value;
-}, false);
-
-// panning
-const pannerOptions = {pan: 0};
-const panner = new StereoPannerNode(audioCtx, pannerOptions);
-
-const pannerControl = document.querySelector('[data-action="panner"]');
-pannerControl.addEventListener('input', function() {
-	panner.pan.value = this.value;	
-}, false);
-
-// connect our graph
-track.connect(gainNode).connect(panner).connect(audioCtx.destination);
-
-const powerButton = document.querySelector('.control-power');
-
-powerButton.addEventListener('click', function() {
-	if (this.dataset.power === 'on') {
-		audioCtx.suspend();
-		this.dataset.power = 'off';
-	} else if (this.dataset.power === 'off') {
-		audioCtx.resume();
-		this.dataset.power = 'on';
-	}
-	this.setAttribute( "aria-checked", state ? "false" : "true" );
-	console.log(audioCtx.state);
-}, false);
-
-// Track credit: Outfoxing the Fox by Kevin MacLeod under Creative Commons 
-
-
-
-
-
-    //   var wavesurfer = WaveSurfer.create({
-    //     container: '#waveform'
-    // });
-
-    // wavesurfer.on('keydown', function (){
-    //     wavesurfer.play();
-    // })
+// document.querySelector(".record-button").addEventListener("click", record);
+document.querySelector(".play-button").addEventListener("click", start);
+document.querySelector(".stop-button").addEventListener("click", stop);
