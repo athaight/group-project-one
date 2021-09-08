@@ -1,6 +1,3 @@
 # group-project-one
 
-
-
-Javascript is okay
-
+I like javascript because it's super confusing, and weird
