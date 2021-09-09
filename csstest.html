@@ -14,130 +14,47 @@
 
     <title>Document</title>
   </head>
-  <body>
-    <div class="flex space-x-3 p-2">
-      <button
-        class="
-          rounded-full
-          w-8
-          h-8
-          flex
-          items-center
-          justify-center
-          pl-0.5
-          ring-2 ring-gray-100
-          focus:outline-none
-        "
-      >
-        <svg
-          class="w-5 h-5"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <polygon points="5 3 19 12 5 21 5 3"></polygon>
-        </svg>
-      </button>
+  <body class="bg-black">
+    <!-- <div class="block"><button [class^="tape-controls" ]>hello</button></div> -->
+    <p></p>
+    <div class="flex flex-col text-white text-center align-center relative">
+      <label for="volume">Volume</label>
+      <input type="range" name="volume" id="" class="items-start m-2">
+
+      
     </div>
 
-    <div class="group inline-block">
-      <button
-        class="
-          outline-none
-          focus:outline-none
-          border
-          px-3
-          py-1
-          bg-white
-          rounded-sm
-          flex
-          items-center
-          min-w-32
-        "
-      >
-        <span class="pr-1 font-semibold flex-1"> Sound Options: </span>
-        <span>
-          <svg
+
+         <!--Play button-->
+         <div class="flex space-x-3 p-4">
+          <button
+            type="button"
             class="
-              fill-current
-              h-4
-              w-4
-              transform
-              group-hover:-rotate-180
-              transition
-              duration-150
-              ease-in-out
+              rounded-full
+              w-8
+              h-8
+              flex
+              items-center
+              justify-center
+              pl-0.5
+              ring-2 ring-gray-100
+              focus:outline-none
+              bg-green-500
+              play-button  
             "
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
+            [data-playing]="true"
           >
-            <path
-              d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
-            />
-          </svg>
-        </span>
-      </button>
-      <ul
-        class="
-          bg-white
-          border
-          rounded-sm
-          transform
-          scale-0
-          group-hover:scale-100
-          absolute
-          transition
-          duration-150
-          ease-in-out
-          origin-top
-          min-w-32
-        "
-      >
-        <li class="rounded-sm px-3 py-1 hover:bg-gray-100">Drums</li>
-        <li class="rounded-sm px-3 py-1 hover:bg-gray-100">Piano</li>
-        <li class="rounded-sm relative px-3 py-1 hover:bg-gray-100">Duck</li>
-        <li class="rounded-sm px-3 py-1 hover:bg-gray-100">Random Sounds</li>
-      </ul>
-    </div>
-
-    <style>
-      /* since nested groupes are not supported we have to use 
-           regular css for the nested dropdowns 
-        */
-      li > ul {
-        transform: translatex(100%) scale(0);
-      }
-      li:hover > ul {
-        transform: translatex(101%) scale(1);
-      }
-      li > button svg {
-        transform: rotate(-90deg);
-      }
-      li:hover > button svg {
-        transform: rotate(-270deg);
-      }
-
-      /* Below styles fake what can be achieved with the tailwind config
-           you need to add the group-hover variant to scale and define your custom
-           min width style.
-             See https://codesandbox.io/s/tailwindcss-multilevel-dropdown-y91j7?file=/index.html
-             for implementation with config file
-        */
-      .group:hover .group-hover\:scale-100 {
-        transform: scale(1);
-      }
-      .group:hover .group-hover\:-rotate-180 {
-        transform: rotate(180deg);
-      }
-      .scale-0 {
-        transform: scale(0);
-      }
-      .min-w-32 {
-        min-width: 8rem;
-      }
-    </style>
+            <svg
+              class="w-5 h-5 text-black"
+              viewBox="0 0 24 24"
+              fill="lightgreen"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </button>
   </body>
 </html>
