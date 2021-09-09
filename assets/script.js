@@ -92,6 +92,8 @@ function record() {
   console.log("Starting...");
 }
 
+
+recording
 // document.querySelector(".record-button").addEventListener("click", record);
 document.querySelector(".play-button").addEventListener("click", start);
-document.querySelector(".stop-button").addEventListener("click", stop);
+// document.querySelector(".stop-button").addEventListener("click", stop);
