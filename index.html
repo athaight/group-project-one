@@ -15,81 +15,35 @@
     <title>MusicMachine2100</title>
   </head>
 
-  <body class="bg-purple-900">
+  <body
+    class="
+      bg-gradient-to-b
+      from-purple-900
+      via-indigo-300
+      to-yellow-100
+      h-screen
+    "
+  >
     <!-- Setting Bar -->
     <section
       class="relative flex bg-purple-200 p-2 m-5 justify-center w-1/2 h-30"
     >
-      <div>
-        <div class="group inline-block">
-          <button
-            class="
-              outline-none
-              focus:outline-none
-              border
-              px-3
-              py-1
-              bg-white
-              rounded-sm
-              flex
-              items-center
-              min-w-32
-            "
-          >
-            <span class="pr-1 font-semibold flex-1"> Sound Options: </span>
-            <span>
-              <svg
-                class="
-                  fill-current
-                  h-4
-                  w-4
-                  transform
-                  group-hover:-rotate-180
-                  transition
-                  duration-150
-                  ease-in-out
-                "
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
-                />
-              </svg>
-            </span>
-          </button>
-          <ul
-            class="
-              bg-white
-              border
-              rounded-sm
-              transform
-              scale-0
-              group-hover:scale-100
-              absolute
-              transition
-              duration-150
-              ease-in-out
-              origin-top
-              min-w-32
-            "
-          >
-            <li class="rounded-sm px-3 py-1 hover:bg-gray-100">Drums</li>
-            <li class="rounded-sm px-3 py-1 hover:bg-gray-100">Piano</li>
-            <li class="rounded-sm relative px-3 py-1 hover:bg-gray-100">
-              Duck
-            </li>
-            <li class="rounded-sm px-3 py-1 hover:bg-gray-100">
-              Random Sounds
-            </li>
-          </ul>
-        </div>
+      <div class="p-1">
+        <label for="Music Selections">Music Selections</label>
       </div>
+      <select name="Music Options" id="music-options">
+        <option value="Drums">Drums</option>
+        <option value="Piano">Piano</option>
+        <option value="Duck">Duck</option>
+        <option value="Random-Sounds">Random Sounds</option>
+      </select>
     </section>
-    <!--Play button-->
-    <section class="flex justify-center w-full align-center">
+    <!-- Play/Record section -->
+    <section class="flex justify-center w-full align-center playStop">
+      <!--Play button-->
       <div class="flex space-x-3 p-4">
         <button
+          type="button"
           class="
             rounded-full
             w-8
@@ -101,6 +55,7 @@
             ring-2 ring-gray-100
             focus:outline-none
             bg-green-500
+            play-button
           "
         >
           <svg
@@ -127,6 +82,7 @@
             rounded-xl
             ring-4 ring-red-500 ring-offset-4 ring-offset-red-200
             font-bold
+            stop-button
           "
         >
           Record
@@ -172,11 +128,6 @@
         <kbd>L</kbd>
         <span class="sound">beoo</span>
       </div>
-    </div>
-
-    <div class="playStop">
-      <button type="button" class="play-button"></button>
-      <button type="button" class="stop-button"></button>
     </div>
 
     <audio data-key="a" src="/sounds/drumkit/Clap Bitkits 02.wav"></audio>
