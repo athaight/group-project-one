@@ -38,3 +38,12 @@ var keyHit = [];
     // wavesurfer.on('keydown', function (){
     //     wavesurfer.play();
     // })
+
+    //find our list
+    //add event listener to list
+    //
+    function getSelectedValue ()
+    {
+        var selectedValue = document.getElementById("sound-option-list").value;
+        console.log(selectedValue)
+    }
