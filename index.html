@@ -4,32 +4,95 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/assets/style.css" />
     <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
     <link rel="stylesheet" href="/public/styles.css" />
+    <link rel="stylesheet" href="/assets/style.css" />
     <script
       type="text/javascript"
       src="http://www.cornify.com/js/cornify.js"
     ></script>
-    <!-- <script src="https://unpkg.com/wavesurfer.js"></script> -->
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
+      defer
+    ></script>
     <title>MusicMachine2100</title>
   </head>
 
   <body
     class="
       bg-gradient-to-b
-      from-purple-900
+      from-purple-700
       via-indigo-300
       to-yellow-100
       h-screen
     "
+    x-data="{ showModal1: false, showModal2: false, showModal3: false }"
+    :class="{'overflow-y-hidden': showModal1 || showModal2 || showModal3}"
   >
     <!-- Setting Bar -->
     <section
-      class="relative flex bg-purple-200 p-2 m-5 justify-center w-1/2 h-30"
+      class="
+        relative
+        flex
+        bg-purple-200
+        p-2
+        m-5
+        align-center
+        justify-between
+        w-1/2
+        h-30
+      "
     >
-      <div class="p-1">
-        <label for="Music Selections">Music Selections</label>
+      <div class="px-2 justify-center">
+        <label class="flex align-center px-2" for="Music Selections"
+          >Music Selections</label
+        >
+
+        <select name="Music Options" id="music-options">
+          <option value="Drums">Drums</option>
+          <option value="Piano">Piano</option>
+          <option value="Duck">Duck</option>
+          <option value="Random-Sounds">Random Sounds</option>
+        </select>
+      </div>
+      <div>
+        <button
+          class="
+            bg-purple-600
+            font-semibold
+            text-white
+            p-2
+            w-32
+            rounded-full
+            hover:bg-purple-700
+            shadow-lg
+            hover:shadow-none
+            transition-all
+            duration-300
+            m-2
+          "
+          @click="showModal1 = true"
+        >
+          Save
+        </button>
+        <button
+          class="
+            bg-purple-600
+            font-semibold
+            text-white
+            p-2
+            w-32
+            rounded-full
+            hover:bg-purple-700
+            shadow-lg
+            hover:shadow-none
+            transition-all
+            duration-300
+            m-2
+          "
+        >
+          Reset
+        </button>
       </div>
       <select name="Music Options" id="music-options">
         <option value="8bit">8Bit</option>
@@ -161,5 +224,7 @@
     <audio data-key="l" src="/sounds/drumkit/Tom Bitkits 01 2.wav"></audio> -->
 
     <script src="/assets/script.js"></script>
+    <!-- <script src="/assets/sample.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/tone@14.7.77/build/Tone.min.js"></script>
   </body>
 </html>

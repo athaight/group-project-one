@@ -15,6 +15,7 @@ body {
 .keys {
   display: flex;
   flex-direction: row;
+  flex-wrap: flex;
   justify-content: space-around;
   align-items: center;
   margin: 1rem;
