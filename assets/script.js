@@ -45,7 +45,7 @@ keys.forEach((key) => key.addEventListener("transitionend", removeTransition));
 
 const play = document.querySelector(".play-button");
 const record = document.querySelector(".record-button");
-const musicA = document.querySelector("#newMusic");
+const newMusic = document.querySelector("#newMusic");
 const audioArr = document.querySelectorAll("audio");
 // const ac = new AudioContext();
 
@@ -100,8 +100,10 @@ function recordSound() {
     // when play button is pressed plays back the blob
     play.addEventListener("click", playSound);
     function playSound() {
-      musicA.src = URL.createObjectURL(ev.data);
-      musicA.play();
+      newMusic.src = URL.createObjectURL(ev.data);
+
+      newMusic.play();
+
     }
   };
   setTimeout(() => recorder.stop(), 10 * 1000);

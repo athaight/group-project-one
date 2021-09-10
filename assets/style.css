@@ -5,11 +5,11 @@
 .soundboard-img {
   height: 100%;
 }
-
-.soundboard-img {
-  height: 100%;
+.playing {
+  transform: scale(1.1);
+  border-color: #ffc600;
+  box-shadow: 0 0 10px #ffc600;
 }
-
 .keys {
   display: flex;
   flex-wrap: wrap;
@@ -19,12 +19,6 @@
   align-items: center;
   margin: 1rem;
   font-size: 1.5rem;
-}
-
-.playing {
-  transform: scale(1.1);
-  border-color: #ffc600;
-  box-shadow: 0 0 10px #ffc600;
 }
 
 .key {
@@ -49,7 +43,6 @@ kdb {
   display: block;
   font-size: 40px;
 }
-
 
 .sound {
   font-size: 1rem;
