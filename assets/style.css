@@ -10,8 +10,14 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap; */
-/* } */
+
+
+  flex-wrap: wrap;
+}
+.soundboard-img {
+  height: 100%;
+}
+
 
 .keys {
   display: flex;

@@ -66,6 +66,10 @@
       justify-between
       h-30
     "
+
+    x-data="{ showModal1: false }"
+    :class="{'overflow-y-hidden': showModal1 }"
+
   >
     
       <div>
@@ -89,7 +93,13 @@
           Save
         </button>
       </div>
-      
+
+    </section>
+    <!-- Play/Record section -->
+    <section class="flex justify-center w-full align-center playStop">
+      <!-- Play button-->
+      <div class="flex space-x-3 p-4">
+
         <button
           class="
             rounded-full
@@ -119,11 +129,15 @@
       </div>
       <div>
         <button
+
+          type="button"
+
           class="
             bg-purple-600
             font-semibold
             text-white
             p-2
+
             w-32
             rounded-full
             hover:bg-purple-700
@@ -132,11 +146,19 @@
             transition-all
             duration-300
             m-2
+
+            bg-red-500
+            rounded-xl
+            ring-4 ring-red-500 ring-offset-4 ring-offset-red-200
+            font-bold
+            record-button
+
           "
         >
           Reset
         </button>
       </div>
+
     
   </section>
   <!-- Play/Record section -->
@@ -228,6 +250,7 @@
     x-transition:leave-start="opacity-100"
     x-transition:leave-end="opacity-0"
   >
+
     <div
       class="
         relative
@@ -329,10 +352,12 @@
         </footer>
       </div>
     </div>
+
   </div>
   <script src="/assets/script.js"></script>
   <!-- <script src="/assets/sample.js"></script> -->
   <script src="https://cdn.jsdelivr.net/npm/tone@14.7.77/build/Tone.min.js"></script>
+
   </body>
 
 </html>
