@@ -1,12 +1,85 @@
 // Create a whitelist of characters that can be pressed by the user;
 const whitelist = "asdfghjkl";
 
-// create a recording array to keep track of all key presses
-const recording = [];
-
 // utiltiy function to check if key was valid
 function isValidKey(key) {
   return whitelist.includes(key);
+}
+
+// Select all keys on the page and register event listener for transitionend
+const keys = document.querySelectorAll(".key");
+keys.forEach((key) => key.addEventListener("transitionend", removeTransition));
+
+const play = document.querySelector(".play-button");
+const record = document.querySelector(".record-button");
+const newMusic = document.querySelector("#newMusic");
+const audioContainer = document.querySelector("#audio-container");
+
+// Fetching all of our samples from our freesound API
+// creating an audio element for each
+// appending it to the page
+const sampleIds = [
+  232014, 509518, 264601, 171104, 41155, 232014, 232014, 232014, 232014,
+];
+const token = "G7NpkqsZGywcgcgVbG72LcRz5dSDyMqqsDKf2Lew";
+const requests = sampleIds.map(async (id) =>
+  (
+    await fetch(`https://freesound.org/apiv2/sounds/${id}/?token=${token}`)
+  ).json()
+);
+Promise.all(requests).then(function (samples) {
+  console.log(samples);
+  samples.forEach(function (sample, i) {
+    const audio = document.createElement("audio");
+    audio.setAttribute("data-key", whitelist[i]);
+    audio.setAttribute("src", sample.previews["preview-hq-mp3"]);
+    audio.crossOrigin = "anonymous";
+    audioContainer.append(audio);
+  });
+});
+
+// utility function to add animation to key elements
+function removeTransition(event) {
+  if (event.propertyName !== "transform") return;
+  this.classList.remove("playing");
+}
+
+function recordSound() {
+  const ac = new AudioContext();
+  const dest = ac.createMediaStreamDestination();
+
+  const audioArr = document.querySelectorAll("audio");
+
+  // The media element source stops audio playout of the audio element.
+  // Hook it up to speakers again.
+
+  audioArr.forEach(function (audio) {
+    const source = ac.createMediaElementSource(audio);
+
+    source.connect(ac.destination);
+    source.connect(dest);
+  });
+
+  // Record 10s of audio with MediaRecorder.
+  const recorder = new MediaRecorder(dest.stream);
+  recorder.start();
+  recorder.ondataavailable = (ev) => {
+    console.info("Finished recording. Got blob:", ev.data);
+    newMusic.src = URL.createObjectURL(ev.data);
+    // when play button is pressed plays back the blob
+    play.addEventListener("click", playSound);
+    function playSound() {
+      newMusic.play();
+    }
+
+    const musicDownload = document.createElement("a");
+    musicDownload.href = newMusic.src;
+    musicDownload.download = "";
+    // musicDownload.click()
+    document.querySelector("#saveLi").textContent = "Saved";
+    document.querySelector("#saveLi").append(musicDownload);
+  };
+  setTimeout(() => recorder.stop(), 10 * 1000);
 }
 
 // Add event listener for all keydown events in the browser
@@ -33,82 +106,8 @@ window.addEventListener("keyup", function (event) {
   if (!isValidKey(event.key)) return;
 });
 
-// utility function to add animation to key elements
-function removeTransition(event) {
-  if (event.propertyName !== "transform") return;
-  this.classList.remove("playing");
-}
-
-// Select all keys on the page and register event listener for transitionend
-const keys = document.querySelectorAll(".key");
-keys.forEach((key) => key.addEventListener("transitionend", removeTransition));
-
-const play = document.querySelector(".play-button");
-const record = document.querySelector(".record-button");
-const newMusic = document.querySelector("#newMusic");
-const audioArr = document.querySelectorAll("audio");
-// const ac = new AudioContext();
-
 //event listener to when record button is pressed fires recordSound
 record.addEventListener("click", recordSound);
 
-function recordSound() {
-  const ac = new AudioContext();
-
-  // The media element source stops audio playout of the audio element.
-  // Hook it up to speakers again.
-
-  // TODO HELP TUCKER
-  const sourceA = ac.createMediaElementSource(audioArr[0]);
-  const sourceS = ac.createMediaElementSource(audioArr[1]);
-  const sourceD = ac.createMediaElementSource(audioArr[2]);
-  const sourceF = ac.createMediaElementSource(audioArr[3]);
-  const sourceG = ac.createMediaElementSource(audioArr[4]);
-  const sourceH = ac.createMediaElementSource(audioArr[5]);
-  const sourceJ = ac.createMediaElementSource(audioArr[6]);
-  const sourceK = ac.createMediaElementSource(audioArr[7]);
-  const sourceL = ac.createMediaElementSource(audioArr[8]);
-
-  sourceA.connect(ac.destination);
-  sourceS.connect(ac.destination);
-  sourceD.connect(ac.destination);
-  sourceF.connect(ac.destination);
-  sourceG.connect(ac.destination);
-  sourceH.connect(ac.destination);
-  sourceJ.connect(ac.destination);
-  sourceK.connect(ac.destination);
-  sourceL.connect(ac.destination);
-
-  // Hook up the audio element to a MediaStream.
-  const dest = ac.createMediaStreamDestination();
-  sourceA.connect(dest);
-  sourceS.connect(dest);
-  sourceD.connect(dest);
-  sourceF.connect(dest);
-  sourceG.connect(dest);
-  sourceH.connect(dest);
-  sourceJ.connect(dest);
-  sourceK.connect(dest);
-  sourceL.connect(dest);
-
-  // Record 10s of audio with MediaRecorder.
-  const recorder = new MediaRecorder(dest.stream);
-  recorder.start();
-  recorder.ondataavailable = (ev) => {
-    console.info("Finished recording. Got blob:", ev.data);
-    // chunks.push(ev.data)
-    // when play button is pressed plays back the blob
-    play.addEventListener("click", playSound);
-    function playSound() {
-      newMusic.src = URL.createObjectURL(ev.data);
-
-      newMusic.play();
-
-    }
-  };
-  setTimeout(() => recorder.stop(), 10 * 1000);
-
-  // console.log(recorder)
-  // console.log(ac.state)
-  // console.log(dest)
-}
+// Returns a list of sounds with id's
+// https://freesound.org/apiv2/search/text/?token=G7NpkqsZGywcgcgVbG72LcRz5dSDyMqqsDKf2Lew&query=drum&filter=duration:1
