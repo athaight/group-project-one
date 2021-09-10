@@ -96,19 +96,38 @@ function recordSound() {
   recorder.start();
   recorder.ondataavailable = (ev) => {
     console.info("Finished recording. Got blob:", ev.data);
-    // chunks.push(ev.data)
+    newMusic.src = URL.createObjectURL(ev.data);
     // when play button is pressed plays back the blob
     play.addEventListener("click", playSound);
     function playSound() {
-      newMusic.src = URL.createObjectURL(ev.data);
 
       newMusic.play();
 
     }
+
+    const musicDownload = document.createElement("a")
+    musicDownload.href = newMusic.src;
+    musicDownload.download = ""
+    // musicDownload.click()
+    document.querySelector("#saveLi").textContent = "Saved"
+    document.querySelector("#saveLi").append(musicDownload)
+
+
   };
   setTimeout(() => recorder.stop(), 10 * 1000);
 
-  // console.log(recorder)
-  // console.log(ac.state)
-  // console.log(dest)
+
 }
+
+
+
+const token = "G7NpkqsZGywcgcgVbG72LcRz5dSDyMqqsDKf2Lew"
+
+
+fetch(`https://freesound.org/apiv2/sounds/232014/?token=${token}`).then((data) => {
+  return data.json()
+}).then(data => {
+  console.log(data.previews["preview-hq-mp3"])
+
+  document.querySelector(`.key[data-key="a"]`).src = data.previews["preview-hq-mp3"]
+})
