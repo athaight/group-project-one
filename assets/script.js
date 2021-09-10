@@ -24,7 +24,7 @@ window.addEventListener("keydown", function (event) {
   // Tell the audio element to play in the browser
   audio.play();
   // Add styling to the selected key
-  key.classList.add("playing");
+  keys.classList.add("playing");
 });
 
 // Add event listener for all keydown events in the browser
