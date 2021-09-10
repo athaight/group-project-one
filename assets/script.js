@@ -11,7 +11,6 @@ function isValidKey(key) {
 
 // Add event listener for all keydown events in the browser
 window.addEventListener("keydown", function (event) {
-  console.log(event.key);
   // If key is not valid return
   if (!isValidKey(event.key)) return;
 
@@ -26,24 +25,6 @@ window.addEventListener("keydown", function (event) {
   audio.play();
   // Add styling to the selected key
   key.classList.add("playing");
-
-  // record the key that was pressed
-  // check to see if there is a delay in the recording
-  if (recording[recording.length - 1]?.type === "delay") {
-    // if so set end time
-    recording[recording.length - 1].end = event.timeStamp;
-  }
-
-  // set an end time
-  recording.push({
-    type: "keypress",
-    key: event.key,
-  });
-  // push a delay object with start time set
-  recording.push({
-    type: "delay",
-    start: event.timeStamp,
-  });
 });
 
 // Add event listener for all keydown events in the browser
@@ -62,36 +43,70 @@ function removeTransition(event) {
 const keys = document.querySelectorAll(".key");
 keys.forEach((key) => key.addEventListener("transitionend", removeTransition));
 
-// Start playing our recorded audio
-function start() {
-  console.log("Starting...");
-  // play our recording starting at index 0
-  playRecord(0);
+const play = document.querySelector(".play-button");
+const record = document.querySelector(".record-button");
+const musicA = document.getElementsByTagName("audio")[0];
+const audioArr = document.querySelectorAll("audio");
+// const ac = new AudioContext();
+
+//event listener to when record button is pressed fires recordSound
+record.addEventListener("click", recordSound);
+
+function recordSound() {
+  const ac = new AudioContext();
+
+  // The media element source stops audio playout of the audio element.
+  // Hook it up to speakers again.
+
+  // TODO HELP TUCKER
+  const sourceA = ac.createMediaElementSource(audioArr[0]);
+  const sourceS = ac.createMediaElementSource(audioArr[1]);
+  const sourceD = ac.createMediaElementSource(audioArr[2]);
+  const sourceF = ac.createMediaElementSource(audioArr[3]);
+  const sourceG = ac.createMediaElementSource(audioArr[4]);
+  const sourceH = ac.createMediaElementSource(audioArr[5]);
+  const sourceJ = ac.createMediaElementSource(audioArr[6]);
+  const sourceK = ac.createMediaElementSource(audioArr[7]);
+  const sourceL = ac.createMediaElementSource(audioArr[8]);
+
+  sourceA.connect(ac.destination);
+  sourceS.connect(ac.destination);
+  sourceD.connect(ac.destination);
+  sourceF.connect(ac.destination);
+  sourceG.connect(ac.destination);
+  sourceH.connect(ac.destination);
+  sourceJ.connect(ac.destination);
+  sourceK.connect(ac.destination);
+  sourceL.connect(ac.destination);
+
+  // Hook up the audio element to a MediaStream.
+  const dest = ac.createMediaStreamDestination();
+  sourceA.connect(dest);
+  sourceS.connect(dest);
+  sourceD.connect(dest);
+  sourceF.connect(dest);
+  sourceG.connect(dest);
+  sourceH.connect(dest);
+  sourceJ.connect(dest);
+  sourceK.connect(dest);
+  sourceL.connect(dest);
+
+  // Record 10s of audio with MediaRecorder.
+  const recorder = new MediaRecorder(dest.stream);
+  recorder.start();
+  recorder.ondataavailable = (ev) => {
+    console.info("Finished recording. Got blob:", ev.data);
+    // chunks.push(ev.data)
+    // when play button is pressed plays back the blob
+    play.addEventListener("click", playSound);
+    function playSound() {
+      musicA.src = URL.createObjectURL(ev.data);
+      musicA.play();
+    }
+  };
+  setTimeout(() => recorder.stop(), 10 * 1000);
+
+  // console.log(recorder)
+  // console.log(ac.state)
+  // console.log(dest)
 }
-
-function playRecord(index) {
-  // exit condition: we are the end of our array
-  if (index === recording.length - 1) return;
-
-  // play the audio associated with the key stored in the current index of our array
-  const key = recording[index].key;
-  const audio = document.querySelector(`audio[data-key="${key}"]`);
-  audio.play();
-
-  index++;
-  const delay = recording[index].end - recording[index].start;
-
-  // wait the delayed time
-  setTimeout(function () {
-    // move onto the next key in the array
-    playRecord(++index);
-  }, delay);
-}
-
-function record() {
-  console.log("Starting...");
-}
-
-// document.querySelector(".record-button").addEventListener("click", record);
-document.querySelector(".play-button").addEventListener("click", start);
-document.querySelector(".stop-button").addEventListener("click", stop);
