@@ -97,7 +97,6 @@
     </section>
     <!-- Play/Record section -->
     <section class="flex justify-center w-full align-center playStop">
-      <audio controls class="" src=""></audio>
       <!-- Play button-->
       <div class="flex space-x-3 p-4">
         <button
@@ -130,9 +129,9 @@
         </button>
       </div>
       <!-- Recoord button -->
-      <!-- <div>
+      <div>
         <button
-          type="submit"
+          type="button"
           class="
             m-3
             p-2
@@ -140,16 +139,16 @@
             rounded-xl
             ring-4 ring-red-500 ring-offset-4 ring-offset-red-200
             font-bold
-            stop-button
+            record-button
           "
         >
           Record
         </button>
-      </div> -->
+      </div>
     </section>
 
     <!-- <div id="waveform"></div> -->
-    <div>
+    <section class="bruh">
       <div class="keys">
         <div data-key="a" class="key">
           <kbd>A</kbd>
@@ -188,8 +187,20 @@
           <span class="sound">beoo</span>
         </div>
       </div>
-    </div>
+    </section>
+    <!-- <audio id="mainAudio">
+      <audio data-key="a" src="/sounds/drumkit/Clap Bitkits 02.wav"></audio>
+      <audio data-key="s" src="/sounds/drumkit/ClosedHH Bitkits 02.wav"></audio>
+      <audio data-key="d" src="/sounds/drumkit/Cowbell Bitkits 03.wav"></audio>
+      <audio data-key="f" src="/sounds/drumkit/Kick Bitkits 01 1.wav"></audio>
+      <audio data-key="g" src="/sounds/drumkit/OpenHH Bitkits 06.wav"></audio>
+      <audio data-key="h" src="/sounds/drumkit/Perc Bitkits 09 1.wav"></audio>
+      <audio data-key="j" src="/sounds/drumkit/Shaker Bitkits 02.wav"></audio>
+      <audio data-key="k" src="/sounds/drumkit/Snare Bitkits 05.wav"></audio>
+      <audio data-key="l" src="/sounds/drumkit/Tamb Bitkits 02.wav"></audio>
+    </audio> -->
 
+    <!-- <audio id="mainAudio"> -->
     <audio data-key="a" src="/sounds/drumkit/Clap Bitkits 02.wav"></audio>
     <audio data-key="s" src="/sounds/drumkit/ClosedHH Bitkits 02.wav"></audio>
     <audio data-key="d" src="/sounds/drumkit/Cowbell Bitkits 03.wav"></audio>
@@ -199,6 +210,7 @@
     <audio data-key="j" src="/sounds/drumkit/Shaker Bitkits 02.wav"></audio>
     <audio data-key="k" src="/sounds/drumkit/Snare Bitkits 05.wav"></audio>
     <audio data-key="l" src="/sounds/drumkit/Tamb Bitkits 02.wav"></audio>
+    <!-- </audio> -->
     <!-- Save Modal -->
     <div
       class="
@@ -324,6 +336,5 @@
 
     <script src="/assets/script.js"></script>
     <!-- <script src="/assets/sample.js"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/tone@14.7.77/build/Tone.min.js"></script>
   </body>
 </html>

@@ -12,6 +12,9 @@ body {
   align-items: center;
   flex-wrap: wrap;
 }
+.soundboard-img {
+  height: 100%;
+}
 
 .keys {
   display: flex;
