@@ -214,16 +214,10 @@
       <span class="sound">beoo</span>
     </div>
   </div>
-<audio id="newMusic" src=""></audio>
-  <audio data-key="a" src="/sounds/drumkit/Clap Bitkits 02.wav"></audio>
-  <audio data-key="s" src="/sounds/drumkit/ClosedHH Bitkits 02.wav"></audio>
-  <audio data-key="d" src="/sounds/drumkit/Cowbell Bitkits 03.wav"></audio>
-  <audio data-key="f" src="/sounds/drumkit/Kick Bitkits 01 1.wav"></audio>
-  <audio data-key="g" src="/sounds/drumkit/OpenHH Bitkits 06.wav"></audio>
-  <audio data-key="h" src="/sounds/drumkit/Perc Bitkits 09 1.wav"></audio>
-  <audio data-key="j" src="/sounds/drumkit/Shaker Bitkits 02.wav"></audio>
-  <audio data-key="k" src="/sounds/drumkit/Snare Bitkits 05.wav"></audio>
-  <audio data-key="l" src="/sounds/drumkit/Tamb Bitkits 02.wav"></audio>
+  <div id="audio-container">
+    <audio id="newMusic" src=""></audio>
+
+  </div>
   <!-- Save Modal -->
   <div
     class="
@@ -293,8 +287,8 @@
             placeholder="enter name"
           />
           <ol>
-            <li>
-              1.<button
+            <li >
+              1.<button id="saveLi"
                 type="button"
                 class="bg-purple-200 m-2 p-1 w-1/2 rounded-xl"
               >
