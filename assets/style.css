@@ -2,17 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  /* background-color: cadetblue; */
-  background-repeat: no-repeat;
-  background-size: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
+.soundboard-img {
+  height: 100%;
 }
-
 
 .soundboard-img {
   height: 100%;
@@ -20,6 +12,7 @@ body {
 
 .keys {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   flex-wrap: flex;
   justify-content: space-around;
@@ -57,11 +50,6 @@ kdb {
   font-size: 40px;
 }
 
-.playing {
-  transform: scale(1.1);
-  border-color: #ffc600;
-  box-shadow: 0 0 10px #ffc600;
-}
 
 .sound {
   font-size: 1rem;
