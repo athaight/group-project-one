@@ -17,82 +17,47 @@
   ></script>
     <title>Document</title>
   </head>
-  <div class= "h-full">
-  <body 
-  class="
-  bg-gradient-to-b
-  from-purple-700
-  via-indigo-300
-  to-yellow-100
-  h-screen
-"
-  x-data="{ showModal1: false, showModal2: false, showModal3: false }"
-  :class="{'overflow-y-hidden': showModal1 || showModal2 || showModal3}"
-  class="bg-gradient-to-b max-h-full from-purple-800 to-purple-300">
-    <div class="bg-purple w-full px-2 h-full">
-      <div
-        class="container mx-auto rounded-t shadow bg-cover m-4 bg-no-repeat"
-        style="background-image: url(/assets/img/soundboard.jpg)"
-      >
-        <!-- Text shadow utilities will be cool -->
-        <nav class="flex justify-between p-8 items-center mb-16">
-          <a
-            href="#"
-            class="
-              font-sans
-              text-black text-sm
-              md:text-4xl
-              font-thin
-              text-yellow-300
-            "
-            >Musical Soundbored</a
-          >
-          <ul class="list-reset flex">
-            <li>
-              <a href="#" class="text-black md:text-white p-2 md:p-4">Home</a>
-            </li>
-            <li>
-              <a
-                href="#"
-                class="text-black md:text-white p-2 md:p-4 whitespace-no-wrap"
-                >About Us</a
-              >
-            </li>
-            <li>
-              <a href="#" class="text-black md:text-white p-2 md:p-4"
-                >Contact</a
-              >
-            </li>
-          </ul>
-        </nav>
 
-        <div class="text-center text-white pb-16">
-          <h1 class="font-sans font-thin">
-            Reality is just a matter of perception.
-          </h1>
-          <h2 class="font-thin text-sm tracking-wide mt-2 mb-4">
-            There are no limits, except for those that we impose on ourselves.
-            Join the future
-          </h2>
-
-          <a
-            href="#"
-            class="
-              rounded
-              bg-orange
-              text-white
-              p-4
-              font-bold
-              inline-block
-              mb-16
-            "
-          >
-            Apply Now
-          </a>
+  <body class="bg-gradient-to-b h- from-purple-800 to-purple-300">
+    <div class="bg-purple w-full">
+      <div class="keys">
+        <div data-key="65" class="key">
+          <kbd>A</kbd>
+          <span class="sound">clap</span>
         </div>
-      </div>
-    </div>
-  </div>
+        <div data-key="83" class="key">
+          <kbd>S</kbd>
+          <span class="sound">tick</span>
+        </div>
+        <div data-key="68" class="key">
+          <kbd>D</kbd>
+          <span class="sound">tink</span>
+        </div>
+        <div data-key="70" class="key">
+          <kbd>F</kbd>
+          <span class="sound">berrr</span>
+        </div>
+        <div data-key="71" class="key">
+          <kbd>G</kbd>
+          <span class="sound">hiopen</span>
+        </div>
+        <div data-key="72" class="key">
+          <kbd>H</kbd>
+          <span class="sound">tom</span>
+        </div>
+        <div data-key="74" class="key">
+          <kbd>J</kbd>
+          <span class="sound">snare</span>
+        </div>
+        <div data-key="75" class="key">
+          <kbd>K</kbd>
+          <span class="sound">tish</span>
+        </div>
+        <div data-key="76" class="key">
+          <kbd>L</kbd>
+          <span class="sound">beoo</span>
+
+
   <!-- Setting Bar -->
   <section
     class="
