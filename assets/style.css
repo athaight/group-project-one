@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  min-width: 375px;
+}
+.main {
+  margin-right: auto;
+  margin-left: auto;
+  width: 80%;
+  min-width: 375px;
+}
+
 .soundboard-img {
   height: 100%;
 }
@@ -36,9 +46,30 @@
   width: 100px;
   text-align: center;
   color: white;
-  background: rgba(0, 0, 0, 0.4);
-  text-shadow: 0 0 5px black;
+  background: linear-gradient(
+    -45deg,
+    #23a6d5,
+    #6b26b9,
+    #e73c7e,
+    #ee7752,
+    #e7ab3c
+  );
+  background-size: 150% 150%;
+  animation: gradient 05s ease infinite;
 }
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 kdb {
   display: block;
   font-size: 40px;
@@ -81,4 +112,100 @@ li:hover > button svg {
 }
 .min-w-32 {
   min-width: 8rem;
+}
+
+@media only screen and (max-width: 1147px) {
+  .main {
+    margin: 0px;
+    width: 100%;
+  }
+  nav {
+    font-size: 33px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-shadow: 0 0 10px black;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .main {
+    margin: 0px;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  nav {
+    font-size: 33px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-shadow: 0 0 10px black;
+  }
+
+  .saveRecRst section {
+    margin: 0rem;
+    box-shadow: 0 0 10px black;
+  }
+
+  .main {
+    width: 100%;
+    background: linear-gradient(
+      -45deg,
+      #23a6d5,
+      #6b26b9,
+      #e73c7e,
+      #ee7752,
+      #e7ab3c
+    );
+    background-size: 150% 150%;
+    animation: gradient 05s ease infinite;
+    box-shadow: 0 0 10px black;
+  }
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .keys {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    align-items: center;
+    font-size: 0.5rem;
+  }
+
+  .key {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 2;
+    flex-wrap: wrap;
+    border: 4px solid black;
+    border-radius: 5px;
+    margin: 0.5rem;
+    margin-top: 0.5rem;
+    font-size: 2rem;
+    padding: 1rem 0.5rem;
+    transition: all 0.07s;
+    width: auto;
+    text-align: center;
+    color: white;
+    background: #e7ab3c;
+    box-shadow: 0 0 10px rgb(87, 87, 87);
+  }
+
+  .sound {
+    color: white;
+  }
 }
