@@ -19,7 +19,7 @@ const audioContainer = document.querySelector("#audio-container");
 // creating an audio element for each
 // appending it to the page
 const sampleIds = [
-  232014, 509518, 264601, 171104, 41155, 232014, 232014, 232014, 232014,
+  441641, 488461, 264601, 171104, 41155, 232014, 509518, 542834, 542895,
 ];
 const token = "G7NpkqsZGywcgcgVbG72LcRz5dSDyMqqsDKf2Lew";
 const requests = sampleIds.map(async (id) =>
