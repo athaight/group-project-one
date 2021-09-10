@@ -19,9 +19,8 @@
   </head>
   <div class= "h-full">
   <body 
-  
-  x-data="{ showModal1: false, showModal2: false, showModal3: false }"
-  :class="{'overflow-y-hidden': showModal1 || showModal2 || showModal3}"
+  x-data="{ showModal1: false }"
+  :class="{'overflow-y-hidden': showModal1}"
   class="bg-gradient-to-b max-h-full from-purple-800 to-purple-300">
     <div class="bg-purple w-full h-full">
       <div
@@ -66,10 +65,6 @@
       justify-around
       h-30
     "
-
-    x-data="{ showModal1: false }"
-    :class="{'overflow-y-hidden': showModal1 }"
-
   >
     
       <div>
@@ -101,7 +96,7 @@
               m-3
               p-2
               bg-pink-400
-              ing-red-500 ring-offset-4 ring-offset-red-200
+              ring-red-500 ring-offset-4 ring-offset-red-200
               font-bold
               record-button
               rounded-full
@@ -113,6 +108,7 @@
             Rec
           </button>
         </div>   
+<!-- PLay button -->
         <button
           class="
             rounded-full
@@ -127,6 +123,7 @@
             bg-yellow-300
             shadow-lg
             hover:shadow-none
+            play-button
           "
         >
           <svg
@@ -217,7 +214,7 @@
       <span class="sound">beoo</span>
     </div>
   </div>
-
+<audio id="newMusic" src=""></audio>
   <audio data-key="a" src="/sounds/drumkit/Clap Bitkits 02.wav"></audio>
   <audio data-key="s" src="/sounds/drumkit/ClosedHH Bitkits 02.wav"></audio>
   <audio data-key="d" src="/sounds/drumkit/Cowbell Bitkits 03.wav"></audio>
@@ -353,7 +350,7 @@
   </div>
   <script src="/assets/script.js"></script>
   <!-- <script src="/assets/sample.js"></script> -->
-  <script src="https://cdn.jsdelivr.net/npm/tone@14.7.77/build/Tone.min.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/tone@14.7.77/build/Tone.min.js"></script> -->
 
   </body>
 
