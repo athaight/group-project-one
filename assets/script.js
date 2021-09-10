@@ -105,4 +105,8 @@ function recordSound() {
     }
   };
   setTimeout(() => recorder.stop(), 10 * 1000);
+
+  // console.log(recorder)
+  // console.log(ac.state)
+  // console.log(dest)
 }
