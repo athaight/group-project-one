@@ -37,20 +37,30 @@
 
         <div class="text-center text-white pb-16">
           <h1 class="font-sans font-thin">
-            Reality is just a matter of perception.
+            Step away from reality and make some noise.
           </h1>
           <h2 class="font-thin text-sm tracking-wide mt-2 mb-4">
-            There are no limits, except for those that we impose on ourselves.
-            Join the future
+            Record your beat and play it back. It's that simple. 
           </h2>
         </div>
       </div>
     </div>
-
-    <!-- Setting Bar -->
-    <section
-      class="flex bg-purple-200 p-2 m-5 items-center justify-between h-30"
-    >
+  </div>
+  <main class="main">
+  <!-- Setting Bar -->
+  <div class="saveRecRst">
+  <section
+    class="
+      flex
+      bg-purple-200
+      p-2
+      m-5
+      items-center
+      justify-around
+      h-30
+    "
+  >
+    
       <div>
         <button
           class="
@@ -72,8 +82,27 @@
           Save
         </button>
       </div>
-      <!-- Recoord button -->
-      <div>
+        <!-- Recoord button -->
+        <div>
+          <button 
+            type="submit"
+            class="
+              m-3
+              p-2
+              bg-pink-400
+              ring-red-500 ring-offset-4 ring-offset-red-200
+              font-bold
+              record-button
+              rounded-full
+              shadow-lg
+              hover:shadow-none
+
+            "
+          >
+            Rec
+          </button>
+        </div>   
+<!-- PLay button -->
         <button
           type="submit"
           class="
@@ -90,38 +119,7 @@
         >
           Rec
         </button>
-      </div>
-      <!-- PLay button -->
-      <button
-        class="
-          rounded-full
-          w-8
-          h-8
-          flex
-          items-center
-          justify-center
-          pl-0.5
-          ring-2 ring-gray-100
-          focus:outline-none
-          bg-yellow-300
-          shadow-lg
-          hover:shadow-none
-          play-button
-        "
-      >
-        <svg
-          class="w-5 h-5 text-black"
-          viewBox="0 0 24 24"
-          fill="orange"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <polygon points="5 3 19 12 5 21 5 3"></polygon>
-        </svg>
-      </button>
-
+      
       <div>
         <button
           type="button"
@@ -149,49 +147,76 @@
     </section>
     <!-- Play/Record section -->
 
-    <!-- <div id="waveform"></div> -->
-    <div class="keys">
-      <div data-key="a" class="key">
-        <kbd>A</kbd>
-        <span class="sound">clap</span>
-      </div>
-      <div data-key="s" class="key">
-        <kbd>S</kbd>
-        <span class="sound">tick</span>
-      </div>
-      <div data-key="d" class="key">
-        <kbd>D</kbd>
-        <span class="sound">tink</span>
-      </div>
-      <div data-key="f" class="key">
-        <kbd>F</kbd>
-        <span class="sound">berrr</span>
-      </div>
-      <div data-key="g" class="key">
-        <kbd>G</kbd>
-        <span class="sound">hiopen</span>
-      </div>
-      <div data-key="h" class="key">
-        <kbd>H</kbd>
-        <span class="sound">tom</span>
-      </div>
-      <div data-key="j" class="key">
-        <kbd>J</kbd>
-        <span class="sound">snare</span>
-      </div>
-      <div data-key="k" class="key">
-        <kbd>K</kbd>
-        <span class="sound">tish</span>
-      </div>
-      <div data-key="l" class="key">
-        <kbd>L</kbd>
-        <span class="sound">beoo</span>
-      </div>
+    
+  </section>
+</div>
+  <!-- Play/Record section -->
+
+  <!-- <div id="waveform"></div> -->
+  <div class="keys">
+    <div data-key="a" class="key">
+      <kbd>A</kbd>
+      <span class="sound">eleckick</span>
     </div>
-    <div id="audio-container">
-      <audio id="newMusic" src=""></audio>
+    <div data-key="s" class="key">
+      <kbd>S</kbd>
+      <span class="sound">hitom</span>
     </div>
-    <!-- Save Modal -->
+    <div data-key="d" class="key">
+      <kbd>D</kbd>
+      <span class="sound">mkick</span>
+    </div>
+    <div data-key="f" class="key">
+      <kbd>F</kbd>
+      <span class="sound">hkick</span>
+    </div>
+    <div data-key="g" class="key">
+      <kbd>G</kbd>
+      <span class="sound">dnbkick</span>
+    </div>
+    <div data-key="h" class="key">
+      <kbd>H</kbd>
+      <span class="sound">snare</span>
+    </div>
+    <div data-key="j" class="key">
+      <kbd>J</kbd>
+      <span class="sound">hihat</span>
+    </div>
+    <div data-key="k" class="key">
+      <kbd>K</kbd>
+      <span class="sound">clap</span>
+    </div>
+    <div data-key="l" class="key">
+      <kbd>L</kbd>
+      <span class="sound">skick</span>
+    </div>
+  </div>
+  <div id="audio-container">
+    <audio id="newMusic" src=""></audio>
+
+  </div>
+</main>
+  <!-- Save Modal -->
+  <div
+    class="
+      fixed
+      inset-0
+      w-full
+      h-full
+      z-20
+      bg-black bg-opacity-50
+      duration-300
+      overflow-y-auto
+    "
+    x-show="showModal1"
+    x-transition:enter="transition duration-300"
+    x-transition:enter-start="opacity-0"
+    x-transition:enter-end="opacity-100"
+    x-transition:leave="transition duration-300"
+    x-transition:leave-start="opacity-100"
+    x-transition:leave-end="opacity-0"
+  >
+
     <div
       class="
         fixed
