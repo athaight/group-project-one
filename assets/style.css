@@ -5,14 +5,15 @@
 body {
   min-width: 375px;
   height: 100%;
+  overflow: hidden;
 }
 .main {
+  margin-top: auto;
   margin-right: auto;
   margin-left: auto;
   width: 70%;
-  height: 50vh;
+  height: 100vh;
   min-width: 375px;
-  
 }
 
 .soundboard-img {
@@ -28,6 +29,7 @@ body {
   align-items: center;
   margin: 1rem;
   font-size: 1.5rem;
+  margin-top: auto;
 }
 
 .key {
@@ -124,8 +126,8 @@ li:hover > button svg {
 
 @media only screen and (max-width: 1147px) {
   .main {
-    margin: 0px;
-    width: 100%;
+    margin: auto;
+    width: auto;
   }
   nav {
     font-size: 33px;
@@ -135,6 +137,8 @@ li:hover > button svg {
     align-content: center;
     text-shadow: 0 0 10px black;
   }
+  .keys {
+    margin-top: auto;
 }
 
 @media only screen and (max-width: 600px) {
@@ -142,9 +146,16 @@ li:hover > button svg {
     margin: 0px;
     width: 100%;
   }
+  .keys {
+    margin: 2px;  
+}
 }
 
 @media only screen and (max-width: 375px) {
+  body {
+    overflow: hidden;
+  }
+  
   nav {
     font-size: 33px;
     display: flex;
@@ -172,6 +183,7 @@ li:hover > button svg {
     background-size: 150% 150%;
     animation: gradient 05s ease infinite;
     box-shadow: 0 0 10px black;
+    
   }
 
   @keyframes gradient {
@@ -192,6 +204,7 @@ li:hover > button svg {
     grid-template-rows: 1fr 1fr 1fr;
     align-items: center;
     font-size: 0.5rem;
+    margin-top: 10px;
   }
 
   .key {
