@@ -21,8 +21,8 @@
   <body 
   x-data="{ showModal1: false }"
   :class="{'overflow-y-hidden': showModal1}"
-  class="bg-gradient-to-b max-h-full from-purple-800 to-purple-300">
-    <div class="bg-purple w-full h-full">
+  class="bg-gradient-to-b from-purple-800 to-purple-300">
+    <div class="top-image">
       <div
         class=" mx-auto rounded-t shadow bg-cover bg-no-repeat"
         style="background-image: url(/assets/img/soundboard.jpg)"
@@ -30,12 +30,11 @@
         <!-- Text shadow utilities will be cool -->
         <nav class="flex justify-between px-9 py-4 items-center mb-8">
           <a
-            href="#"
+            href="https://github.com/athaight/group-project-one"
             class="
               font-sans
               text-black 
-              md:text-4xl
-              
+              md:text-4xl	
               text-yellow-300
             "
             >Musical Soundbored</a
@@ -44,17 +43,18 @@
 
         <div class="text-center text-white pb-16">
           <h1 class="font-sans font-thin">
-            Reality is just a matter of perception.
+            Step away from reality and make some noise.
           </h1>
           <h2 class="font-thin text-sm tracking-wide mt-2 mb-4">
-            There are no limits, except for those that we impose on ourselves.
-            Join the future
+            Record your beat and play it back. It's that simple. 
           </h2>
         </div>
       </div>
     </div>
   </div>
+  <main class="main">
   <!-- Setting Bar -->
+  <div class="saveRecRst">
   <section
     class="
       flex
@@ -62,7 +62,7 @@
       p-2
       m-5
       items-center
-      justify-between
+      justify-around
       h-30
     "
   >
@@ -90,7 +90,7 @@
       </div>
         <!-- Recoord button -->
         <div>
-          <button
+          <button 
             type="submit"
             class="
               m-3
@@ -101,7 +101,7 @@
               record-button
               rounded-full
               shadow-lg
-            hover:shadow-none
+              hover:shadow-none
 
             "
           >
@@ -138,7 +138,7 @@
             <polygon points="5 3 19 12 5 21 5 3"></polygon>
           </svg>
         </button>
-      </div>
+      
       <div>
         <button
 
@@ -173,57 +173,53 @@
 
     
   </section>
+</div>
   <!-- Play/Record section -->
 
   <!-- <div id="waveform"></div> -->
   <div class="keys">
     <div data-key="a" class="key">
       <kbd>A</kbd>
-      <span class="sound">clap</span>
+      <span class="sound">eleckick</span>
     </div>
     <div data-key="s" class="key">
       <kbd>S</kbd>
-      <span class="sound">tick</span>
+      <span class="sound">hitom</span>
     </div>
     <div data-key="d" class="key">
       <kbd>D</kbd>
-      <span class="sound">tink</span>
+      <span class="sound">mkick</span>
     </div>
     <div data-key="f" class="key">
       <kbd>F</kbd>
-      <span class="sound">berrr</span>
+      <span class="sound">hkick</span>
     </div>
     <div data-key="g" class="key">
       <kbd>G</kbd>
-      <span class="sound">hiopen</span>
+      <span class="sound">dnbkick</span>
     </div>
     <div data-key="h" class="key">
       <kbd>H</kbd>
-      <span class="sound">tom</span>
+      <span class="sound">snare</span>
     </div>
     <div data-key="j" class="key">
       <kbd>J</kbd>
-      <span class="sound">snare</span>
+      <span class="sound">hihat</span>
     </div>
     <div data-key="k" class="key">
       <kbd>K</kbd>
-      <span class="sound">tish</span>
+      <span class="sound">clap</span>
     </div>
     <div data-key="l" class="key">
       <kbd>L</kbd>
-      <span class="sound">beoo</span>
+      <span class="sound">skick</span>
     </div>
   </div>
-<audio id="newMusic" src=""></audio>
-  <audio data-key="a" src="/sounds/drumkit/Clap Bitkits 02.wav"></audio>
-  <audio data-key="s" src="/sounds/drumkit/ClosedHH Bitkits 02.wav"></audio>
-  <audio data-key="d" src="/sounds/drumkit/Cowbell Bitkits 03.wav"></audio>
-  <audio data-key="f" src="/sounds/drumkit/Kick Bitkits 01 1.wav"></audio>
-  <audio data-key="g" src="/sounds/drumkit/OpenHH Bitkits 06.wav"></audio>
-  <audio data-key="h" src="/sounds/drumkit/Perc Bitkits 09 1.wav"></audio>
-  <audio data-key="j" src="/sounds/drumkit/Shaker Bitkits 02.wav"></audio>
-  <audio data-key="k" src="/sounds/drumkit/Snare Bitkits 05.wav"></audio>
-  <audio data-key="l" src="/sounds/drumkit/Tamb Bitkits 02.wav"></audio>
+  <div id="audio-container">
+    <audio id="newMusic" src=""></audio>
+
+  </div>
+</main>
   <!-- Save Modal -->
   <div
     class="
@@ -293,8 +289,8 @@
             placeholder="enter name"
           />
           <ol>
-            <li>
-              1.<button
+            <li >
+              1.<button id="saveLi"
                 type="button"
                 class="bg-purple-200 m-2 p-1 w-1/2 rounded-xl"
               >
