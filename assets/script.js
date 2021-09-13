@@ -63,8 +63,8 @@ function recordSound() {
   });
 
   // Record 10s of audio with MediaRecorder.
-  // var options = { MimeType: }
-  const recorder = new MediaRecorder(dest.stream, options);
+  // var options = { mimeType: 'audio/' };
+  const recorder = new MediaRecorder(dest.stream);
   recorder.start();
   recorder.ondataavailable = (ev) => {
     console.info("Finished recording. Got blob:", ev.data);
@@ -80,27 +80,23 @@ function recordSound() {
     // sets href = urlblob
     musicDownload.href = newMusic.src;
     textForm.addEventListener("submit", function (e) {
+
       e.preventDefault()
+
       musicDownload.setAttribute("download", "download")
+      // listens for a user text input
       textForm.value = ""
+      // set download name = to user text
       let downloadName = saveName.value
+      // add a download attribute
       musicDownload.textContent = downloadName;
       musicDownload.download = downloadName
 
-
+      // append to #saveLi
       document.querySelector("#saveLi").append(musicDownload);
       console.log("hello world")
     })
-    // set download name = to user text
 
-    // listens for a user text input
-
-
-    // add a download attribute
-
-
-
-    // add the anchor tag to
 
 
   };
