@@ -14,21 +14,22 @@ const play = document.querySelector(".play-button");
 const record = document.querySelector(".record-button");
 const newMusic = document.querySelector("#newMusic");
 const audioContainer = document.querySelector("#audio-container");
-
+const saveName = document.querySelector("#save-name")
+const textForm = document.querySelector("#text-form")
 // Fetching all of our samples from our freesound API
 // creating an audio element for each
 // appending it to the page
 const sampleIds = [
   441641, 488461, 264601, 171104, 41155, 232014, 509518, 542834, 542895,
 ];
-const token = "G7NpkqsZGywcgcgVbG72LcRz5dSDyMqqsDKf2Lew";
+const token = "J0EtOmTDT4XAYWeIhvdik7AqQ0t7xumlOu8Kj1kI";
 const requests = sampleIds.map(async (id) =>
   (
     await fetch(`https://freesound.org/apiv2/sounds/${id}/?token=${token}`)
   ).json()
 );
 Promise.all(requests).then(function (samples) {
-  console.log(samples);
+
   samples.forEach(function (sample, i) {
     const audio = document.createElement("audio");
     audio.setAttribute("data-key", whitelist[i]);
@@ -62,6 +63,7 @@ function recordSound() {
   });
 
   // Record 10s of audio with MediaRecorder.
+  // var options = { mimeType: 'audio/' };
   const recorder = new MediaRecorder(dest.stream);
   recorder.start();
   recorder.ondataavailable = (ev) => {
@@ -72,19 +74,37 @@ function recordSound() {
     function playSound() {
       newMusic.play();
     }
-
+    // create an anchor tag
     const musicDownload = document.createElement("a");
+
+    // sets href = urlblob
     musicDownload.href = newMusic.src;
-    musicDownload.download = "";
-    // musicDownload.click()
-    document.querySelector("#saveLi").textContent = "Saved";
-    document.querySelector("#saveLi").append(musicDownload);
+    textForm.addEventListener("submit", function (e) {
+
+      e.preventDefault()
+
+      musicDownload.setAttribute("download", "download")
+      // listens for a user text input
+      textForm.value = ""
+      // set download name = to user text
+      let downloadName = saveName.value
+      // add a download attribute
+      musicDownload.textContent = downloadName;
+      musicDownload.download = downloadName
+
+      // append to #saveLi
+      document.querySelector("#saveLi").append(musicDownload);
+      console.log("hello world")
+    })
+
+
+
   };
   setTimeout(() => {
     record.classList.add("bg-pink-400");
     record.classList.remove("bg-blue-400");
     recorder.stop();
-  }, 10 * 1000);
+  }, 11 * 1000);
 }
 
 // Add event listener for all keydown events in the browser
@@ -121,15 +141,15 @@ var keyHit = [];
 var recordedCode = "unicorns";
 
 window.addEventListener("keyup", function (event) {
-  console.log(event.key);
+
   keyHit.push(event.key);
   keyHit.splice(-recordedCode.length - 1, keyHit.length - recordedCode.length);
-  console.log(keyHit);
+
 
   if (keyHit.join("").includes(recordedCode)) {
     cornify_add();
   }
-  console.log(keyHit);
+
 });
 
 //find reset button
@@ -139,7 +159,7 @@ restart.addEventListener("click", restartPage);
 function restartPage() {
   //reloading current page
   location.reload();
-  return false;
+
 }
 
 //save modal info
