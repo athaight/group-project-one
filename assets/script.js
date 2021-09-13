@@ -208,6 +208,11 @@ fetch("https://api.kanye.rest")
           }
   
           //update volume bar and video volume
+          var volumeAudio = (percentage / 100).toFixed(2);
+          const audioArr = document.querySelectorAll("audio");
+          audioArr.forEach(function (audio) {
+            audio.volume = volumeAudio;
+          });        
           eInner.style.width = percentage +'%';
-          audio.volume = percentage / 100;
+          localStorage.setItem("volume", (volumeAudio));
   };
