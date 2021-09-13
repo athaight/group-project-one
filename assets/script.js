@@ -21,7 +21,7 @@ const audioContainer = document.querySelector("#audio-container");
 const sampleIds = [
   441641, 488461, 264601, 171104, 41155, 232014, 509518, 542834, 542895,
 ];
-const token = "G7NpkqsZGywcgcgVbG72LcRz5dSDyMqqsDKf2Lew";
+const token = "YgPo0qnlrAo0ZUYuUnjFjxdq0M9Z3NzXDbgRZFZc";
 const requests = sampleIds.map(async (id) =>
   (
     await fetch(`https://freesound.org/apiv2/sounds/${id}/?token=${token}`)
@@ -141,3 +141,12 @@ function restartPage() {
   location.reload();
   return false;
 }
+const quoteLocation = document.querySelector('#Kanye-Quote')
+fetch("https://api.kanye.rest")
+  .then((response) => response.json())
+  .then(function (data) {
+    console.log(data);
+    const kanyeQuotes = data.quote;
+    console.log(kanyeQuotes)
+    quoteLocation.textContent = "Kanye's random quote: " + kanyeQuotes
+  });
