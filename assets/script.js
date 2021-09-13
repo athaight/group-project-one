@@ -161,3 +161,17 @@ function restartPage() {
   location.reload();
 
 }
+
+//save modal info
+//target text box
+//append what gets put in text box to name
+const quoteLocation = document.querySelector("#Kanye-Quote")
+fetch("https://api.kanye.rest")
+  .then((response) => response.json())
+  .then(function (data) {
+    console.log(data);
+    const kanyeQuotes = data.quote;
+    console.log(kanyeQuotes)
+    quoteLocation.textContent = "Kanye's quote of the day: " + kanyeQuotes
+  });
+ 
