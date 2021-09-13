@@ -230,3 +230,15 @@ li:hover > button svg {
     }
   }
 }
+.volume-slider-con{
+  height:10px;
+  width:50%;
+     position:relative;
+  background-color: lightskyblue;
+}
+.volume-slider{
+   height:100%;
+   width:100%;
+   position:relative;
+   background-color: cadetblue;
+}
