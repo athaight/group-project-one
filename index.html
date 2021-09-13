@@ -52,6 +52,7 @@
           <h2 class="font-thin text-sm tracking-wide mt-2 mb-12">
             Record your beat and play it back. It's that simple. 
           </h2>
+          <h3 id ="Kanye-Quote"></h3>
         </div>
       </div>
     </div>
@@ -89,7 +90,7 @@
           "
           @click="showModal1 = true"
         >
-          Save
+          Download
         </button>
       </div>
         <!-- Recoord button -->
@@ -106,13 +107,17 @@
               rounded-full
               shadow-lg
               hover:shadow-none
-
             "
           >
             Rec
           </button>
         </div>   
 <!-- PLay button -->
+<div>Volume</div>
+<div class="volume-slider-con">
+<div class="volume-slider"></div>
+</div>
+
         <button
           class="
             rounded-full
@@ -153,7 +158,6 @@
             font-semibold
             text-white
             p-2
-
             w-32
             rounded-full
             hover:bg-purple-700
@@ -162,13 +166,11 @@
             transition-all
             duration-300
             m-2
-
             bg-red-500
             rounded-full
             ring-red-500 ring-offset-4 ring-offset-red-200
             font-bold
-            record-button
-
+            reset-button
           "
         >
           Reset
@@ -287,42 +289,22 @@
           </button>
         </header>
         <main class="p-2 text-center">
+          <form id="text-form" type="submit">
           <input
             type="text"
             class="p-1 my-2 w-1/3 text-center bg-purple-200 rounded-md"
-            name=""
-            id=""
+          
+            id="save-name"
             placeholder="enter name"
-          />
+          /></form>
           <ol>
             <li >
-              1.<button id="saveLi"
+              <button id="saveLi"
                 type="button"
                 class="bg-purple-200 m-2 p-1 w-1/2 rounded-xl"
               >
-                save 1
               </button>
-              <button>❌</button>
             </li>
-            <li>
-              2.<button
-                type="button"
-                class="bg-purple-200 m-2 p-1 w-1/2 rounded-xl"
-              >
-                save 2
-              </button>
-              <button>❌</button>
-            </li>
-            <li>
-              3.<button
-                type="button"
-                class="bg-purple-200 m-2 p-1 w-1/2 rounded-xl"
-              >
-                save 3
-              </button>
-              <button>❌</button>
-            </li>
-            <li></li>
           </ol>
         </main>
         <footer class="flex justify-center p-2">
@@ -348,7 +330,7 @@
         </footer>
       </div>
     </div>
-
+    </div>
   </div>
   <script src="./assets/script.js"></script>
   <!-- <script src="/assets/sample.js"></script> -->

@@ -14,21 +14,26 @@ const play = document.querySelector(".play-button");
 const record = document.querySelector(".record-button");
 const newMusic = document.querySelector("#newMusic");
 const audioContainer = document.querySelector("#audio-container");
-
+const saveName = document.querySelector("#save-name")
+const textForm = document.querySelector("#text-form")
 // Fetching all of our samples from our freesound API
 // creating an audio element for each
 // appending it to the page
 const sampleIds = [
   441641, 488461, 264601, 171104, 41155, 232014, 509518, 542834, 542895,
 ];
+<<<<<<< HEAD
 const token = "YgPo0qnlrAo0ZUYuUnjFjxdq0M9Z3NzXDbgRZFZc";
+=======
+const token = "J0EtOmTDT4XAYWeIhvdik7AqQ0t7xumlOu8Kj1kI";
+>>>>>>> 72477cc2ca6c5e589fcf2362eeff6bd57bb21c9d
 const requests = sampleIds.map(async (id) =>
   (
     await fetch(`https://freesound.org/apiv2/sounds/${id}/?token=${token}`)
   ).json()
 );
 Promise.all(requests).then(function (samples) {
-  console.log(samples);
+
   samples.forEach(function (sample, i) {
     const audio = document.createElement("audio");
     audio.setAttribute("data-key", whitelist[i]);
@@ -62,6 +67,7 @@ function recordSound() {
   });
 
   // Record 10s of audio with MediaRecorder.
+  // var options = { mimeType: 'audio/' };
   const recorder = new MediaRecorder(dest.stream);
   recorder.start();
   recorder.ondataavailable = (ev) => {
@@ -72,19 +78,37 @@ function recordSound() {
     function playSound() {
       newMusic.play();
     }
-
+    // create an anchor tag
     const musicDownload = document.createElement("a");
+
+    // sets href = urlblob
     musicDownload.href = newMusic.src;
-    musicDownload.download = "";
-    // musicDownload.click()
-    document.querySelector("#saveLi").textContent = "Saved";
-    document.querySelector("#saveLi").append(musicDownload);
+    textForm.addEventListener("submit", function (e) {
+
+      e.preventDefault()
+
+      musicDownload.setAttribute("download", "download")
+      // listens for a user text input
+      textForm.value = ""
+      // set download name = to user text
+      let downloadName = saveName.value
+      // add a download attribute
+      musicDownload.textContent = downloadName;
+      musicDownload.download = downloadName
+
+      // append to #saveLi
+      document.querySelector("#saveLi").append(musicDownload);
+      console.log("hello world")
+    })
+
+
+
   };
   setTimeout(() => {
     record.classList.add("bg-pink-400");
     record.classList.remove("bg-blue-400");
     recorder.stop();
-  }, 10 * 1000);
+  }, 11 * 1000);
 }
 
 // Add event listener for all keydown events in the browser
@@ -121,15 +145,15 @@ var keyHit = [];
 var recordedCode = "unicorns";
 
 window.addEventListener("keyup", function (event) {
-  console.log(event.key);
+
   keyHit.push(event.key);
   keyHit.splice(-recordedCode.length - 1, keyHit.length - recordedCode.length);
-  console.log(keyHit);
+
 
   if (keyHit.join("").includes(recordedCode)) {
     cornify_add();
   }
-  console.log(keyHit);
+
 });
 
 //find reset button
@@ -139,16 +163,68 @@ restart.addEventListener("click", restartPage);
 function restartPage() {
   //reloading current page
   location.reload();
-  return false;
+
 }
+<<<<<<< HEAD
 const kanyeName = " -Kanye"
 
 const quoteLocation = document.querySelector('#Kanye-Quote')
+=======
+
+//save modal info
+//target text box
+//append what gets put in text box to name
+const quoteLocation = document.querySelector("#Kanye-Quote")
+>>>>>>> 72477cc2ca6c5e589fcf2362eeff6bd57bb21c9d
 fetch("https://api.kanye.rest")
   .then((response) => response.json())
   .then(function (data) {
     console.log(data);
     const kanyeQuotes = data.quote;
     console.log(kanyeQuotes)
+<<<<<<< HEAD
     quoteLocation.textContent = `"${kanyeQuotes}"`;
   });
+=======
+    quoteLocation.textContent = "Kanye's quote of the day: " + kanyeQuotes
+  });
+  var e = document.querySelector('.volume-slider-con');
+  var eInner = document.querySelector('.volume-slider');
+  var audio = document.querySelector('audio');
+  var drag = false;
+  e.addEventListener('mousedown',function(ev){
+     drag = true;
+     updateBar(ev.clientX);
+  });
+  document.addEventListener('mousemove',function(ev){
+     if(drag){
+        updateBar(ev.clientX);
+     }
+  });
+  document.addEventListener('mouseup',function(ev){
+   drag = false;
+  });
+  var updateBar = function (x, vol) {
+     var volume = e;
+          var percentage;
+          //if only volume have specificed
+          //then direct update volume
+          if (vol) {
+              percentage = vol * 100;
+          } else {
+              var position = x - volume.offsetLeft;
+              percentage = 100 * position / volume.clientWidth;
+          }
+  
+          if (percentage > 100) {
+              percentage = 100;
+          }
+          if (percentage < 0) {
+              percentage = 0;
+          }
+  
+          //update volume bar and video volume
+          eInner.style.width = percentage +'%';
+          audio.volume = percentage / 100;
+  };
+>>>>>>> 72477cc2ca6c5e589fcf2362eeff6bd57bb21c9d
