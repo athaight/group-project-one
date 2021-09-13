@@ -104,7 +104,7 @@ function recordSound() {
     record.classList.add("bg-pink-400");
     record.classList.remove("bg-blue-400");
     recorder.stop();
-  }, 5 * 1000);
+  }, 11 * 1000);
 }
 
 // Add event listener for all keydown events in the browser
