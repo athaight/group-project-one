@@ -3,7 +3,7 @@ The Musical Soundbored gives you the power to "beat your boredom" by making a sw
 <h2>Beat it</h2>
 The concept is simple. Once at the site, the user can create sounds with the corresponding key. Each key scales up and glows indicating which key/sound is being triggered. Press record and the keys sequence and duration is recorded and converted to a downloadable audio file.
 <h2>Technologies</h2>
-We built this utilizing CSS & CSS animation, JavaScript, the Tailwinds framework, Web Audio API, Alpine.js, freesound.org API, and Cyanite.ai API.
+We built this utilizing CSS & CSS animation, JavaScript, the Tailwinds framework, Web Audio API, Alpine.js, and freesound.org API (as well as hidden unicorns).
 <h2>Future/Scalability</h2>
 Future development looks to include multiple sound banks to choose from in order to give users the ability to switch up their sounds, more reactive animations, sound manipulation options such as pitch change and oscillation.
 <h2>InitDevs:</h2>
