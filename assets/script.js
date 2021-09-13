@@ -22,11 +22,7 @@ const textForm = document.querySelector("#text-form")
 const sampleIds = [
   441641, 488461, 264601, 171104, 41155, 232014, 509518, 542834, 542895,
 ];
-<<<<<<< HEAD
 const token = "YgPo0qnlrAo0ZUYuUnjFjxdq0M9Z3NzXDbgRZFZc";
-=======
-const token = "J0EtOmTDT4XAYWeIhvdik7AqQ0t7xumlOu8Kj1kI";
->>>>>>> 72477cc2ca6c5e589fcf2362eeff6bd57bb21c9d
 const requests = sampleIds.map(async (id) =>
   (
     await fetch(`https://freesound.org/apiv2/sounds/${id}/?token=${token}`)
@@ -165,29 +161,17 @@ function restartPage() {
   location.reload();
 
 }
-<<<<<<< HEAD
-const kanyeName = " -Kanye"
 
 const quoteLocation = document.querySelector('#Kanye-Quote')
-=======
-
-//save modal info
-//target text box
-//append what gets put in text box to name
-const quoteLocation = document.querySelector("#Kanye-Quote")
->>>>>>> 72477cc2ca6c5e589fcf2362eeff6bd57bb21c9d
 fetch("https://api.kanye.rest")
   .then((response) => response.json())
   .then(function (data) {
     console.log(data);
     const kanyeQuotes = data.quote;
     console.log(kanyeQuotes)
-<<<<<<< HEAD
     quoteLocation.textContent = `"${kanyeQuotes}"`;
   });
-=======
-    quoteLocation.textContent = "Kanye's quote of the day: " + kanyeQuotes
-  });
+
   var e = document.querySelector('.volume-slider-con');
   var eInner = document.querySelector('.volume-slider');
   var audio = document.querySelector('audio');
@@ -227,4 +211,3 @@ fetch("https://api.kanye.rest")
           eInner.style.width = percentage +'%';
           audio.volume = percentage / 100;
   };
->>>>>>> 72477cc2ca6c5e589fcf2362eeff6bd57bb21c9d
