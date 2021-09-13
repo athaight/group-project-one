@@ -15,4 +15,9 @@ Future development looks to include multiple sound banks to choose from in order
 <h2>Deployment:</h2>
 https://athaight.github.io/group-project-one/
 <h2>Screen Shots</h2>
+<br>
+<h3 align="center">Large Screens</h3>
+<p align="center"><img center src="https://github.com/athaight/group-project-one/blob/main/assets/img/SoundborderLG.png"></img></p>
+<h3 align="center">Small Screens</h3>
+<p align="center"><img center src="https://github.com/athaight/group-project-one/blob/main/assets/img/SoundboredSM.png"></img></p>
 
