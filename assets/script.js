@@ -47,8 +47,9 @@ function removeTransition(event) {
 function recordSound() {
   const ac = new AudioContext();
   const dest = ac.createMediaStreamDestination();
-
   const audioArr = document.querySelectorAll("audio");
+  record.classList.remove("bg-pink-400")
+  record.classList.add("bg-blue-400")
 
   // The media element source stops audio playout of the audio element.
   // Hook it up to speakers again.
@@ -79,7 +80,12 @@ function recordSound() {
     document.querySelector("#saveLi").textContent = "Saved";
     document.querySelector("#saveLi").append(musicDownload);
   };
-  setTimeout(() => recorder.stop(), 10 * 1000);
+  setTimeout(() => {
+    record.classList.add("bg-pink-400")
+    record.classList.remove("bg-blue-400")
+    recorder.stop()
+  }, 10 * 1000
+  );
 }
 
 // Add event listener for all keydown events in the browser
