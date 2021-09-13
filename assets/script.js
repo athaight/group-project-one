@@ -47,8 +47,9 @@ function removeTransition(event) {
 function recordSound() {
   const ac = new AudioContext();
   const dest = ac.createMediaStreamDestination();
-
   const audioArr = document.querySelectorAll("audio");
+  record.classList.remove("bg-pink-400");
+  record.classList.add("bg-blue-400");
 
   // The media element source stops audio playout of the audio element.
   // Hook it up to speakers again.
@@ -79,7 +80,11 @@ function recordSound() {
     document.querySelector("#saveLi").textContent = "Saved";
     document.querySelector("#saveLi").append(musicDownload);
   };
-  setTimeout(() => recorder.stop(), 10 * 1000);
+  setTimeout(() => {
+    record.classList.add("bg-pink-400");
+    record.classList.remove("bg-blue-400");
+    recorder.stop();
+  }, 10 * 1000);
 }
 
 // Add event listener for all keydown events in the browser
@@ -113,6 +118,7 @@ record.addEventListener("click", recordSound);
 // https://freesound.org/apiv2/search/text/?token=G7NpkqsZGywcgcgVbG72LcRz5dSDyMqqsDKf2Lew&query=drum&filter=duration:1
 
 var keyHit = [];
+<<<<<<< HEAD
   var recordedCode = "unicorns";
 
   window.addEventListener('keyup', function(event) {
@@ -139,3 +145,28 @@ const data = JSON.parse(localStorage.getItem("save-data")) || {};
 const val = (".enter-name").trim();
 const data = {text:val}
 localStorage.setItem((".enter-name"), JSON.stringify(data));
+=======
+var recordedCode = "unicorns";
+
+window.addEventListener("keyup", function (event) {
+  console.log(event.key);
+  keyHit.push(event.key);
+  keyHit.splice(-recordedCode.length - 1, keyHit.length - recordedCode.length);
+  console.log(keyHit);
+
+  if (keyHit.join("").includes(recordedCode)) {
+    cornify_add();
+  }
+  console.log(keyHit);
+});
+
+//find reset button
+const restart = document.querySelector(".reset-button");
+//add click event to restart page
+restart.addEventListener("click", restartPage);
+function restartPage() {
+  //reloading current page
+  location.reload();
+  return false;
+}
+>>>>>>> 530197827626cead6734a2f5d191b953bbd3fc48
