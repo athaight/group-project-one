@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/assets/style.css" />
+    <link rel="stylesheet" href="./assets/style.css" />
     <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
-    <link rel="stylesheet" href="/public/styles.css" />
+    <link rel="stylesheet" href="./public/styles.css" />
     <script
       type="text/javascript"
       src="http://www.cornify.com/js/cornify.js"
@@ -15,7 +15,7 @@
     src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
     defer
   ></script>
-    <title>Document</title>
+    <title>Musical Soundbored</title>
   </head>
   <div class= "h-full">
   <body 
@@ -25,10 +25,10 @@
     <div class="top-image">
       <div
         class=" mx-auto rounded-t shadow bg-cover bg-no-repeat"
-        style="background-image: url(/assets/img/soundboard.jpg)"
+        style="background-image: url(./assets/img/soundboard.jpg)"
       >
         <!-- Text shadow utilities will be cool -->
-        <nav class="flex justify-between px-9 py-4 items-center mb-8">
+        <nav class="flex justify-between px-9 py-4 items-center mb-1">
           <a
             href="https://github.com/athaight/group-project-one"
             class="
@@ -40,14 +40,16 @@
             >Musical Soundbored</a
           >
         </nav>
+        <h6 class="text-white mt-0 ml-10">BEAT YOUR BOREDOM</h6>
 
         <div class="text-center text-white pb-16">
           <h1 class="font-sans font-thin">
             Step away from reality and make some noise.
           </h1>
-          <h2 class="font-thin text-sm tracking-wide mt-2 mb-4">
+          <h2 class="font-thin text-sm tracking-wide mt-2 mb-12">
             Record your beat and play it back. It's that simple. 
           </h2>
+          <h3 id ="Kanye-Quote"></h3>
         </div>
       </div>
     </div>
@@ -102,7 +104,6 @@
               rounded-full
               shadow-lg
               hover:shadow-none
-
             "
           >
             Rec
@@ -149,7 +150,6 @@
             font-semibold
             text-white
             p-2
-
             w-32
             rounded-full
             hover:bg-purple-700
@@ -158,7 +158,6 @@
             transition-all
             duration-300
             m-2
-
             bg-red-500
             rounded-full
             ring-red-500 ring-offset-4 ring-offset-red-200
@@ -279,7 +278,7 @@
             </svg>
           </button>
         </header>
-        <main class="p-2 text-center enter-name">
+        <main class="p-2 text-center">
           <input
             type="text"
             class="p-1 my-2 w-1/3 text-center bg-purple-200 rounded-md"
@@ -343,7 +342,7 @@
     </div>
 
   </div>
-  <script src="/assets/script.js"></script>
+  <script src="./assets/script.js"></script>
   <!-- <script src="/assets/sample.js"></script> -->
   <!-- <script src="https://cdn.jsdelivr.net/npm/tone@14.7.77/build/Tone.min.js"></script> -->
 

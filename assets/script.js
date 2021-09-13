@@ -118,34 +118,6 @@ record.addEventListener("click", recordSound);
 // https://freesound.org/apiv2/search/text/?token=G7NpkqsZGywcgcgVbG72LcRz5dSDyMqqsDKf2Lew&query=drum&filter=duration:1
 
 var keyHit = [];
-<<<<<<< HEAD
-  var recordedCode = "unicorns";
-
-  window.addEventListener('keyup', function(event) {
-      console.log(event.key)
-      keyHit.push(event.key);
-      keyHit.splice(-recordedCode.length - 1, keyHit.length - recordedCode.length);
-      console.log(keyHit)
-
-      if (keyHit.join('').includes(recordedCode)){
-          cornify_add();
-          }
-      console.log(keyHit);
-  })
-//find reset button
-const restart = document.querySelector(".reset-button");
-//add click event to restart page
-restart.addEventListener("click", restartPage) 
-function restartPage(){  
-//reloading current page
-location.reload();
-return false;}
-
-const data = JSON.parse(localStorage.getItem("save-data")) || {};
-const val = (".enter-name").trim();
-const data = {text:val}
-localStorage.setItem((".enter-name"), JSON.stringify(data));
-=======
 var recordedCode = "unicorns";
 
 window.addEventListener("keyup", function (event) {
@@ -169,4 +141,17 @@ function restartPage() {
   location.reload();
   return false;
 }
->>>>>>> 530197827626cead6734a2f5d191b953bbd3fc48
+
+//save modal info
+//target text box
+//append what gets put in text box to name
+const quoteLocation = document.querySelector("#Kanye-Quote")
+fetch("https://api.kanye.rest")
+  .then((response) => response.json())
+  .then(function (data) {
+    console.log(data);
+    const kanyeQuotes = data.quote;
+    console.log(kanyeQuotes)
+    quoteLocation.textContent = "Kanye's quote of the day: " + kanyeQuotes
+  });
+ 
