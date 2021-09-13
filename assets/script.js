@@ -126,3 +126,16 @@ var keyHit = [];
           }
       console.log(keyHit);
   })
+//find reset button
+const restart = document.querySelector(".reset-button");
+//add click event to restart page
+restart.addEventListener("click", restartPage) 
+function restartPage(){  
+//reloading current page
+location.reload();
+return false;}
+
+const data = JSON.parse(localStorage.getItem("save-data")) || {};
+const val = (".enter-name").trim();
+const data = {text:val}
+localStorage.setItem((".enter-name"), JSON.stringify(data));
