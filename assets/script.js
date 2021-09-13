@@ -50,6 +50,10 @@ function recordSound() {
   const audioArr = document.querySelectorAll("audio");
   record.classList.remove("bg-pink-400")
   record.classList.add("bg-blue-400")
+<<<<<<< HEAD
+=======
+
+>>>>>>> e61f511764c54c48f704f7dbd7e4951c1a27ec8d
   // The media element source stops audio playout of the audio element.
   // Hook it up to speakers again.
 
@@ -116,3 +120,18 @@ record.addEventListener("click", recordSound);
 
 // Returns a list of sounds with id's
 // https://freesound.org/apiv2/search/text/?token=G7NpkqsZGywcgcgVbG72LcRz5dSDyMqqsDKf2Lew&query=drum&filter=duration:1
+
+var keyHit = [];
+  var recordedCode = "unicorns";
+
+  window.addEventListener('keyup', function(event) {
+      console.log(event.key)
+      keyHit.push(event.key);
+      keyHit.splice(-recordedCode.length - 1, keyHit.length - recordedCode.length);
+      console.log(keyHit)
+
+      if (keyHit.join('').includes(recordedCode)){
+          cornify_add();
+          }
+      console.log(keyHit);
+  })

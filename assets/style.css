@@ -4,22 +4,22 @@
 
 body {
   min-width: 375px;
+  height: 100%;
+  overflow: hidden;
 }
 .main {
+  margin-top: auto;
   margin-right: auto;
   margin-left: auto;
-  width: 80%;
+  width: 70%;
+  height: 100vh;
   min-width: 375px;
 }
 
 .soundboard-img {
   height: 100%;
 }
-.playing {
-  transform: scale(1.1);
-  border-color: #ffc600;
-  box-shadow: 0 0 10px #ffc600;
-}
+
 .keys {
   display: flex;
   flex-wrap: wrap;
@@ -29,14 +29,17 @@ body {
   align-items: center;
   margin: 1rem;
   font-size: 1.5rem;
+  margin-top: auto;
 }
 
 .key {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   flex-shrink: 2;
   flex-wrap: wrap;
-  border: 4px solid black;
+  border:  0px solid #6b26b9;
   border-radius: 5px;
   margin: 1rem;
   margin-top: 1rem;
@@ -54,8 +57,15 @@ body {
     #ee7752,
     #e7ab3c
   );
-  background-size: 150% 150%;
+  background-size: 190% 190%;
   animation: gradient 05s ease infinite;
+  box-shadow: 0 0 10px #6b26b9;
+}
+
+.playing {
+  transform: scale(1.1);
+  border-color: #ffc600;
+  box-shadow: 0 0 10px 10px #ffc600;
 }
 
 @keyframes gradient {
@@ -116,8 +126,8 @@ li:hover > button svg {
 
 @media only screen and (max-width: 1147px) {
   .main {
-    margin: 0px;
-    width: 100%;
+    margin: auto;
+    width: auto;
   }
   nav {
     font-size: 33px;
@@ -127,6 +137,8 @@ li:hover > button svg {
     align-content: center;
     text-shadow: 0 0 10px black;
   }
+  .keys {
+    margin-top: auto;
 }
 
 @media only screen and (max-width: 600px) {
@@ -134,9 +146,16 @@ li:hover > button svg {
     margin: 0px;
     width: 100%;
   }
+  .keys {
+    margin: 2px;  
+}
 }
 
 @media only screen and (max-width: 375px) {
+  body {
+    overflow: hidden;
+  }
+  
   nav {
     font-size: 33px;
     display: flex;
@@ -164,6 +183,7 @@ li:hover > button svg {
     background-size: 150% 150%;
     animation: gradient 05s ease infinite;
     box-shadow: 0 0 10px black;
+    
   }
 
   @keyframes gradient {
@@ -184,6 +204,7 @@ li:hover > button svg {
     grid-template-rows: 1fr 1fr 1fr;
     align-items: center;
     font-size: 0.5rem;
+    margin-top: 10px;
   }
 
   .key {
@@ -208,4 +229,4 @@ li:hover > button svg {
   .sound {
     color: white;
   }
-}
+}}
