@@ -148,5 +148,5 @@ fetch("https://api.kanye.rest")
     console.log(data);
     const kanyeQuotes = data.quote;
     console.log(kanyeQuotes)
-    quoteLocation.textContent = "Kanye's random quote: " + kanyeQuotes
+    quoteLocation.textContent = kanyeQuotes + " -Kanye"
   });
