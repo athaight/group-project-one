@@ -48,8 +48,9 @@ function recordSound() {
   const ac = new AudioContext();
   const dest = ac.createMediaStreamDestination();
   const audioArr = document.querySelectorAll("audio");
-  record.classList.remove("bg-pink-400")
-  record.classList.add("bg-blue-400")
+  record.classList.remove("bg-pink-400");
+  record.classList.add("bg-blue-400");
+
   // The media element source stops audio playout of the audio element.
   // Hook it up to speakers again.
 
@@ -80,11 +81,10 @@ function recordSound() {
     document.querySelector("#saveLi").append(musicDownload);
   };
   setTimeout(() => {
-    record.classList.add("bg-pink-400")
-    record.classList.remove("bg-blue-400")
-    recorder.stop()
-  }, 10 * 1000
-  );
+    record.classList.add("bg-pink-400");
+    record.classList.remove("bg-blue-400");
+    recorder.stop();
+  }, 10 * 1000);
 }
 
 // Add event listener for all keydown events in the browser
@@ -120,14 +120,24 @@ record.addEventListener("click", recordSound);
 var keyHit = [];
 var recordedCode = "unicorns";
 
-window.addEventListener('keyup', function (event) {
-  console.log(event.key)
+window.addEventListener("keyup", function (event) {
+  console.log(event.key);
   keyHit.push(event.key);
   keyHit.splice(-recordedCode.length - 1, keyHit.length - recordedCode.length);
-  console.log(keyHit)
+  console.log(keyHit);
 
-  if (keyHit.join('').includes(recordedCode)) {
+  if (keyHit.join("").includes(recordedCode)) {
     cornify_add();
   }
   console.log(keyHit);
-})
+});
+
+//find reset button
+const restart = document.querySelector(".reset-button");
+//add click event to restart page
+restart.addEventListener("click", restartPage);
+function restartPage() {
+  //reloading current page
+  location.reload();
+  return false;
+}
