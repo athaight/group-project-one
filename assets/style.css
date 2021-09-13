@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+.kanyeFlex {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 1rem;
+  
+}
+
 #Kanye-Quote {
   display: flex;
   flex-direction: row;
@@ -11,6 +21,16 @@
   color: white;
   font-family: 'Reenie Beanie', cursive;
   font-size: 30px;
+  
+}
+
+
+.kanyeName {
+  color: white;
+  font-family: 'Reenie Beanie', cursive;
+  font-size: 40px;
+  flex-shrink: 0;
+  padding: 1rem;
 }
 
 body {

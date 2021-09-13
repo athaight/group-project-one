@@ -141,6 +141,8 @@ function restartPage() {
   location.reload();
   return false;
 }
+const kanyeName = " -Kanye"
+
 const quoteLocation = document.querySelector('#Kanye-Quote')
 fetch("https://api.kanye.rest")
   .then((response) => response.json())
@@ -148,5 +150,5 @@ fetch("https://api.kanye.rest")
     console.log(data);
     const kanyeQuotes = data.quote;
     console.log(kanyeQuotes)
-    quoteLocation.textContent = kanyeQuotes + " -Kanye"
+    quoteLocation.textContent = `"${kanyeQuotes}"`;
   });
