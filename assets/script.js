@@ -139,5 +139,5 @@ restart.addEventListener("click", restartPage);
 function restartPage() {
   //reloading current page
   location.reload();
-  return false;
+
 }
